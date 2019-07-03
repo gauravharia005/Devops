@@ -1,0 +1,31 @@
+---
+- hosts: web
+  tasks:
+    - name: create user
+      user:
+        name: test
+        home: /var/tmp/test
+        uid: 8888 
+        state: present 
+    - name: create group
+      group:
+        name: grouptest
+        gid: 7777
+    - name: create user
+      user:
+        name: usertest
+        uid: 6666
+        group: grouptest
+    - name: create directory
+      file:
+        path: /var/tmp/test
+        state: directory
+        owner: root
+    - name: create file
+      file:
+        path: /var/tmp/test/test
+        state: touch
+    - name: copy file
+      copy:
+        src: /var/log/syslog
+        dest: /var/tmp/test/test

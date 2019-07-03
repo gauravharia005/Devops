@@ -1,0 +1,11 @@
+---
+- hosts: web
+  tasks:
+    - name: create directory
+      file:
+        path: /home/thinknyx/playbook_dir 
+        state: directory
+    - name: create file
+      file:
+        path: /home/thinknyx/playbook_file
+        state: touch

@@ -1,0 +1,7 @@
+---
+- hosts: web
+  tasks:
+    - name: create user
+      user:
+        name: garuavharia
+        state: present
